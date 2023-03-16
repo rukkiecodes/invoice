@@ -8,8 +8,14 @@ import { TouchableOpacity } from 'react-native'
 
 import { Feather } from '@expo/vector-icons';
 import { TextInput } from 'react-native'
+import { useDispatch, useSelector } from 'react-redux'
+import { setOrder } from '../../features/useFormSlice'
 
 const Home = () => {
+  const dispatch = useDispatch()
+
+  const { order } = useSelector(state => state.form)
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -26,7 +32,8 @@ const Home = () => {
       </View>
 
       <ScrollView style={styles.formSrollview}>
-        <TextInput placeholder='Order' style={styles.input} />
+        <Text>{order}</Text>
+        <TextInput placeholder='Order' style={styles.input} value={order} onChangeText={e => dispatch(setOrder(e))} />
         <TextInput placeholder='Date' style={styles.input} />
         <TextInput placeholder='Billing Address' style={styles.input} />
         <TextInput placeholder='Shipping Address' style={styles.input} />

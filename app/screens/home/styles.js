@@ -90,8 +90,7 @@ export default StyleSheet.create({
         borderRadius: 12,
         marginBottom: 10,
         paddingHorizontal: 10,
-        fontWeight: '600',
-        fontsize: 16
+        fontWeight: '600'
     },
 
     itemContol: {
