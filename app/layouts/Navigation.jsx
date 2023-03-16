@@ -11,7 +11,7 @@ import color from '../style/color';
 import nav from '../style/navigation';
 
 // SREENS
-import Home from '../screens/Home'
+import Home from '../screens/home'
 
 const Navigation = () => {
     return (

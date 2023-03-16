@@ -2,7 +2,6 @@ import { View, Text } from 'react-native'
 import React from 'react'
 
 import { createStackNavigator, TransitionPresets } from '@react-navigation/stack'
-import Home from '../screens/Home'
 import Navigation from './Navigation'
 
 const { Navigator, Screen, Group } = createStackNavigator()
