@@ -5,12 +5,17 @@ export const useFormSlice = createSlice({
     initialState: {
         order: '',
         date: '',
+        billingAddressTitle: '',
         billingAddress: '',
+        shippingAddressTitle: '',
         shippingAddress: '',
         contact: '',
         salesRep: '',
-        paymentTerms: '',
+        paymentTerms: [],
         items: [],
+        subTotal: 0,
+        vat: 0,
+        total: 0
     },
     reducers: {
         setOrder: (state, action) => {
@@ -19,8 +24,14 @@ export const useFormSlice = createSlice({
         setDate: (state, action) => {
             state.date = action.payload
         },
+        setBillingAddressTitle: (state, action) => {
+            state.billingAddressTitle = action.payload
+        },
         setBillingAddress: (state, action) => {
             state.billingAddress = action.payload
+        },
+        setShippingAddressTitle: (state, action) => {
+            state.shippingAddressTitle = action.payload
         },
         setShippingAddress: (state, action) => {
             state.shippingAddress = action.payload
@@ -32,10 +43,19 @@ export const useFormSlice = createSlice({
             state.salesRep = action.payload
         },
         setPaymentTerms: (state, action) => {
-            state.paymentTerms = action.payload
+            state.paymentTerms = [...state.paymentTerms, action.payload]
         },
         setItems: (state, action) => {
             state.items = [...state.items, action.payload]
+        },
+        setSubTotal: (state, action) => {
+            state.subTotal = action.payload
+        },
+        setVat: (state, action) => {
+            state.vat = action.payload
+        },
+        setTotal: (state, action) => {
+            state.total = action.payload
         },
     }
 })
@@ -45,11 +65,16 @@ export const {
     setOrder,
     setDate,
     setBillingAddress,
+    setBillingAddressTitle,
+    setShippingAddressTitle,
     setShippingAddress,
     setContact,
     setSalesRep,
     setPaymentTerms,
-    setItems
+    setItems,
+    setSubTotal,
+    setVat,
+    setTotal
 } = useFormSlice.actions
 
 export default useFormSlice.reducer

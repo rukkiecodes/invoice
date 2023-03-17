@@ -59,7 +59,7 @@ export default StyleSheet.create({
         backgroundColor: color.accent,
         height: 50,
         flex: 1,
-        marginRight: 10,
+        marginHorizontal: 10,
         borderRadius: 12,
         justifyContent: 'center',
         alignItems: 'center'
@@ -88,9 +88,71 @@ export default StyleSheet.create({
         backgroundColor: `${color.accent}20`,
         height: 50,
         borderRadius: 12,
-        marginBottom: 10,
+        marginBottom: 20,
         paddingHorizontal: 10,
         fontWeight: '600'
+    },
+
+    billingAddress: {
+        backgroundColor: `${color.accent}20`,
+        padding: 10,
+        borderRadius: 12,
+        marginBottom: 20
+    },
+
+    billingAddressText: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        color: color.accent,
+        marginBottom: 10,
+    },
+
+    terms: {
+        backgroundColor: `${color.accent}20`,
+        padding: 10,
+        borderRadius: 12,
+        marginBottom: 20
+    },
+
+    termsControl: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+    },
+
+    termsControlButton: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingHorizontal: 20,
+        height: 50,
+        backgroundColor: color.accent,
+        borderRadius: 12
+    },
+
+    termsControlButtonText: {
+        color: color.white,
+        fontSize: 16,
+        fontWeight: 'bold'
+    },
+
+    termsList: {
+        marginTop: 10
+    },
+
+    termsListItem: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        marginBottom: 10,
+        height: 20
+    },
+
+    termsListItemTitle: {
+        fontSize: 14
+    },
+
+    termsListItemValue: {
+        fontSize: 14
     },
 
     itemContol: {
@@ -120,5 +182,35 @@ export default StyleSheet.create({
         color: color.white,
         fontSize: 16,
         fontWeight: 'bold'
+    },
+
+    itemsList: {
+        backgroundColor: `${color.accent}20`,
+        padding: 10,
+        borderRadius: 12,
+        marginBottom: 10
+    },
+
+    itemsListIndex: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        color: color.accent,
+        marginBottom: 10
+    },
+
+    itemsListItem: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        marginBottom: 10,
+        height: 20
+    },
+
+    itemsListItemTitle: {
+        fontSize: 14
+    },
+
+    itemsListItemValue: {
+        fontSize: 14
     },
 })
