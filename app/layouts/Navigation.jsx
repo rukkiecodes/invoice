@@ -11,29 +11,49 @@ import color from '../style/color';
 import nav from '../style/navigation';
 
 // SREENS
-import Home from '../screens/home'
+import CreateInvoice from '../screens/createInvoice'
+import History from '../screens/history'
 
 const Navigation = () => {
     return (
-        <Navigator
-            screenOptions={{
-                lazy: true,
-                swipeEnabled: false,
-                tabBarIndicatorStyle: {
-                    backgroundColor: color.accent,
-                },
+        <View style={{ flex: 1, backgroundColor: color.white }}>
+            <Navigator
+                screenOptions={{
+                    lazy: true,
+                    swipeEnabled: true,
+                    tabBarIndicatorStyle: {
+                        backgroundColor: color.accent,
+                    },
 
-                tabBarStyle: {
-                    ...nav.barStyle
-                }
-            }}
-            tabBarPosition="bottom"
-        >
-            <Screen
-                name="Home"
-                component={Home}
-            />
-        </Navigator>
+                    tabBarStyle: {
+                        ...nav.barStyle
+                    }
+                }}
+            >
+                <Screen
+                    name="Create Invoice"
+                    component={CreateInvoice}
+                    options={{
+                        tabBarLabel: ({ focused }) => (
+                            <Text style={{ ...nav.tabLabel, color: focused ? color.accent : color.dark }}>
+                                Create
+                            </Text>
+                        )
+                    }}
+                />
+                <Screen
+                    name="History"
+                    component={History}
+                    options={{
+                        tabBarLabel: ({ focused }) => (
+                            <Text style={{ ...nav.tabLabel, color: focused ? color.accent : color.dark }}>
+                                History
+                            </Text>
+                        )
+                    }}
+                />
+            </Navigator>
+        </View>
     )
 }
 

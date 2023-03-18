@@ -1,18 +1,18 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, StatusBar } from "react-native";
 import color from "./color";
 
 export default StyleSheet.create({
     barStyle: {
-        backgroundColor: color.mainBackground,
+        backgroundColor: color.white,
         height: 55,
         shadowColor: color.black,
-        shadowOffset: {
-            width: 0,
-            height: 12,
-        },
-        shadowOpacity: 0.58,
-        shadowRadius: 16.00,
-
-        elevation: 24,
+        marginTop: StatusBar.currentHeight,
+        elevation: 0,
     },
+
+    tabLabel: {
+        fontSize: 15,
+        fontWeight: "bold",
+        color: color.black,
+    }
 })

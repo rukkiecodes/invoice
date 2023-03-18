@@ -39,7 +39,7 @@ import color from '../../style/color'
 import { printToFileAsync } from 'expo-print';
 import { shareAsync } from 'expo-sharing';
 
-const Home = () => {
+const CreateInvoice = () => {
   const navigation = useNavigation()
   const dispatch = useDispatch()
 
@@ -400,4 +400,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default CreateInvoice
