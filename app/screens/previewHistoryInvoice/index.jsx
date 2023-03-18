@@ -1,24 +1,24 @@
-import { View, Text, TouchableOpacity } from 'react-native'
+import { View, Text } from 'react-native'
 import React from 'react'
+import { useNavigation, useRoute } from '@react-navigation/native'
+
+import { WebView } from 'react-native-webview'
+import color from '../../style/color'
+import styles from './styles'
+import { TouchableOpacity } from 'react-native'
+
+import { AntDesign } from '@expo/vector-icons';
 
 import { printToFileAsync } from 'expo-print';
 import { shareAsync } from 'expo-sharing';
 
-import { WebView } from 'react-native-webview'
-import styles from './styles'
+const PreviewHistoryInvoice = () => {
+  const route = useRoute()
+  const navigation = useNavigation()
 
-import { useSelector } from 'react-redux';
+  const { order, date, billingAddressTitle, billingAddress, shippingAddressTitle, shippingAddress, contact, salesRep, paymentTerms, items, subTotal, vat, total } = route.params.invoice
 
-import { AntDesign } from '@expo/vector-icons';
-import color from '../../style/color';
-import { useNavigation } from '@react-navigation/native';
-
-const PreviewInvoice = () => {
-    const { order, date, billingAddressTitle, billingAddress, shippingAddressTitle, shippingAddress, contact, salesRep, paymentTerms, items, subTotal, vat, total } = useSelector(state => state.form)
-
-    const navigation = useNavigation()
-
-    const html = `
+  const html = `
   <html lang="en">
   <body style="width: 700px; max-width: 98%; margin: 20px auto;">
       <style>
@@ -112,9 +112,9 @@ const PreviewInvoice = () => {
               <td style="font-size: .8rem;">${salesRep}</td>
               <td style="font-size: .8rem;">
                     ${paymentTerms.map(item => {
-        return `<p>${item}</p>`
-    })
-        }
+    return `<p>${item}</p>`
+  })
+    }
               </td>
           </tr>
       </table>
@@ -128,7 +128,7 @@ const PreviewInvoice = () => {
               <td style="font-size: .8rem; color: #0374E5;">Sub-Total</td>
           </tr>
           ${items.map((item) => {
-            return `
+      return `
               <tr>
                   <td style="font-size: .8rem;">${item.name}</td>
                   <td style="font-size: .8rem;">${item.description}</td>
@@ -137,8 +137,8 @@ const PreviewInvoice = () => {
                   <td style="font-size: .8rem;">N ${item.subTotal}</td>
               </tr>
               `;
-        }).join('')
-        }
+    }).join('')
+    }
       </table>
   
       <div style="margin-top: 2em; width: 100%; display: flex; justify-content: flex-end; align-items: flex-start;">
@@ -161,28 +161,29 @@ const PreviewInvoice = () => {
   </html>
   `;
 
-    let sharePDF = async () => {
-        let { uri } = await printToFileAsync({
-            html,
-            base64: false
-        })
+  let sharePDF = async () => {
+    let { uri } = await printToFileAsync({
+      html,
+      base64: false
+    })
 
-        await shareAsync(uri)
-    }
+    await shareAsync(uri)
+  }
 
-    return (
-        <View style={styles.container}>
-            <WebView source={{ html: html }} />
-            <View style={styles.bottom}>
-                <TouchableOpacity style={styles.goBackBytton} onPress={() => navigation.goBack()}>
-                    <AntDesign name="back" size={24} color={color.accent} />
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.shareButton} onPress={sharePDF}>
-                    <Text style={styles.shareButtonText}>Share</Text>
-                </TouchableOpacity>
-            </View>
-        </View>
-    )
+  return (
+    <View style={styles.container}>
+      <WebView source={{ html: html }} />
+
+      <View style={styles.bottom}>
+        <TouchableOpacity style={styles.goBackBytton} onPress={() => navigation.goBack()}>
+          <AntDesign name="back" size={24} color={color.accent} />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.shareButton} onPress={sharePDF}>
+          <Text style={styles.shareButtonText}>Share</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  )
 }
 
-export default PreviewInvoice
+export default PreviewHistoryInvoice
