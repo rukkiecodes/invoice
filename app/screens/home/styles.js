@@ -151,8 +151,24 @@ export default StyleSheet.create({
         fontSize: 14
     },
 
+    termsListItemRightSide: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'flex-end',
+    },
+
     termsListItemValue: {
         fontSize: 14
+    },
+
+    deleteButton: {
+        backgroundColor: `${color.accent}20`,
+        height: 20,
+        width: 20,
+        borderRadius: 4,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginLeft: 10
     },
 
     itemContol: {
@@ -191,6 +207,13 @@ export default StyleSheet.create({
         marginBottom: 10
     },
 
+    itemsListHeader: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        marginBottom: 10,
+    },
+
     itemsListIndex: {
         fontSize: 16,
         fontWeight: 'bold',
@@ -213,4 +236,23 @@ export default StyleSheet.create({
     itemsListItemValue: {
         fontSize: 14
     },
+
+    vatToggles: {
+        flexDirection: 'row',
+        borderRadius: 12,
+        overflow: 'hidden',
+    },
+
+    vatToggle: {
+        height: 50,
+        paddingHorizontal: 20,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: color.accent,
+    },
+
+    vatToggleText: {
+        fontSize: 14,
+        color: color.white,
+    }
 })

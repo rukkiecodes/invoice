@@ -45,8 +45,8 @@ const Item = () => {
 
         <TextInput placeholder='Item name' style={styles.input} value={name} onChangeText={setName} />
         <TextInput placeholder='Description' style={styles.input} value={description} onChangeText={setDescription} />
-        <TextInput placeholder='Quantity' style={styles.input} value={quantity} onChangeText={setQuantity} />
-        <TextInput placeholder='Unit Price' style={styles.input} value={unitPrice} onChangeText={setUnitPrice} />
+        <TextInput placeholder='Quantity' keyboardType='number-pad' style={styles.input} value={quantity} onChangeText={setQuantity} />
+        <TextInput placeholder='Unit Price' keyboardType='number-pad' style={styles.input} value={unitPrice} onChangeText={setUnitPrice} />
 
         <TouchableOpacity style={styles.addButton} onPress={setItem}>
           <Text style={styles.addButtonText}>Add Item</Text>

@@ -3,19 +3,20 @@ import { createSlice } from '@reduxjs/toolkit'
 export const useFormSlice = createSlice({
     name: 'form',
     initialState: {
-        order: '',
-        date: '',
-        billingAddressTitle: '',
-        billingAddress: '',
-        shippingAddressTitle: '',
+        order: `SO-${(Math.floor(Math.random() * 900000) + 100000)}`,
+        date: '3/10/2023',
+        billingAddressTitle: 'BUA FOOD',
+        billingAddress: 'bua food Pot Harcourt , Rivers, Nigeria',
+        shippingAddressTitle: 'BUA FOOD',
         shippingAddress: '',
-        contact: '',
-        salesRep: '',
-        paymentTerms: [],
+        contact: '08037984354',
+        salesRep: 'WANLAINJO',
+        paymentTerms: ['Some sort of term'],
         items: [],
         subTotal: 0,
         vat: 0,
-        total: 0
+        total: 0,
+        useVAT: true
     },
     reducers: {
         setOrder: (state, action) => {
@@ -57,6 +58,15 @@ export const useFormSlice = createSlice({
         setTotal: (state, action) => {
             state.total = action.payload
         },
+        setUseVAT: (state, action) => {
+            state.useVAT = action.payload
+        },
+        deleteTerm: (state, action) => {
+            state.paymentTerms.splice(action.payload, 1)
+        },
+        deleteItem: (state, action) => {
+            state.items.splice(action.payload, 1)
+        }
     }
 })
 
@@ -74,7 +84,10 @@ export const {
     setItems,
     setSubTotal,
     setVat,
-    setTotal
+    setTotal,
+    setUseVAT,
+    deleteTerm,
+    deleteItem
 } = useFormSlice.actions
 
 export default useFormSlice.reducer

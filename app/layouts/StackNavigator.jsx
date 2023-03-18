@@ -1,10 +1,11 @@
-import { View, Text } from 'react-native'
 import React from 'react'
 
 import { createStackNavigator, TransitionPresets } from '@react-navigation/stack'
 
 import Navigation from './Navigation'
 import Item from '../screens/item'
+import PreviewInvoice from '../screens/previewInvoice'
+import Modal from '../screens/modal'
 
 const { Navigator, Screen, Group } = createStackNavigator()
 
@@ -21,9 +22,11 @@ const StackNavigator = () => {
             }}
         >
             <Screen name="Navigation" component={Navigation} options={{ gestureEnabled: false }} />
+            <Screen name="PreviewInvoice" component={PreviewInvoice} options={{ gestureEnabled: false }} />
 
             <Group screenOptions={{ presentation: 'transparentModal' }}>
                 <Screen name='Item' component={Item} options={{ gestureEnabled: true }} />
+                <Screen name='Modal' component={Modal} options={{ gestureEnabled: true }} />
             </Group>
         </Navigator>
     )
