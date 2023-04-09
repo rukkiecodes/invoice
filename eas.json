@@ -8,17 +8,44 @@
       "distribution": "internal",
       "ios": {
         "resourceClass": "m-medium"
+      },
+      "env": {
+        "apiKey": "AIzaSyBVcGt3tFqz1cB_LJCFxy2PQObNOVdJumg",
+        "authDomain": "wanlainjoinvoice.firebaseapp.com",
+        "projectId": "wanlainjoinvoice",
+        "storageBucket": "wanlainjoinvoice.appspot.com",
+        "messagingSenderId": "1058225728414",
+        "appId": "1:1058225728414:web:cf58163ee91ca83f6d048f",
+        "measurementId": "G-38LZ6LW3N3"
       }
     },
     "preview": {
       "distribution": "internal",
       "ios": {
         "resourceClass": "m-medium"
+      },
+      "env": {
+        "apiKey": "AIzaSyBVcGt3tFqz1cB_LJCFxy2PQObNOVdJumg",
+        "authDomain": "wanlainjoinvoice.firebaseapp.com",
+        "projectId": "wanlainjoinvoice",
+        "storageBucket": "wanlainjoinvoice.appspot.com",
+        "messagingSenderId": "1058225728414",
+        "appId": "1:1058225728414:web:cf58163ee91ca83f6d048f",
+        "measurementId": "G-38LZ6LW3N3"
       }
     },
     "production": {
       "ios": {
         "resourceClass": "m-medium"
+      },
+      "env": {
+        "apiKey": "AIzaSyBVcGt3tFqz1cB_LJCFxy2PQObNOVdJumg",
+        "authDomain": "wanlainjoinvoice.firebaseapp.com",
+        "projectId": "wanlainjoinvoice",
+        "storageBucket": "wanlainjoinvoice.appspot.com",
+        "messagingSenderId": "1058225728414",
+        "appId": "1:1058225728414:web:cf58163ee91ca83f6d048f",
+        "measurementId": "G-38LZ6LW3N3"
       }
     }
   },
