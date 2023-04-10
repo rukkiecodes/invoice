@@ -1,5 +1,6 @@
-import { View, Text, KeyboardAvoidingView, Platform } from 'react-native'
+import { Text, KeyboardAvoidingView, Platform } from 'react-native'
 import React from 'react'
+import { StatusBar } from 'expo-status-bar'
 
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 const { Navigator, Screen } = createMaterialTopTabNavigator();
@@ -17,6 +18,7 @@ import History from '../screens/history'
 const Navigation = () => {
     return (
         <KeyboardAvoidingView style={{ flex: 1, backgroundColor: color.white }} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+            <StatusBar style="light" />
             <Navigator
                 screenOptions={{
                     lazy: true,
