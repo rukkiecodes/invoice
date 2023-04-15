@@ -1,5 +1,5 @@
 import { View, Text, ActivityIndicator } from 'react-native'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import styles from './styles'
 import { Image } from 'react-native'
@@ -7,7 +7,7 @@ import { ScrollView } from 'react-native'
 import { TouchableOpacity } from 'react-native'
 
 import { Feather } from '@expo/vector-icons';
-import { TextInput } from 'react-native'
+import { TextInput, Keyboard } from 'react-native'
 import { useDispatch, useSelector } from 'react-redux'
 
 import {
@@ -48,6 +48,10 @@ const CreateInvoice = () => {
   const [loading, setLoading] = useState(false)
   const [initialTerm, setInitialTerm] = useState('')
   const [buttonVisiblity, setButtonVisiblity] = useState(false)
+
+  useEffect(() => {
+    disableButton()
+  }, [])
 
   const html = `
   <html lang="en">
@@ -260,8 +264,18 @@ const CreateInvoice = () => {
   }
 
   const disableButton = () => {
-    return false
+    if (date != '' && (billingAddressTitle != '' || billingAddress != '') && (shippingAddressTitle != '' || shippingAddress != '') && contact != '' && salesRep != '' && items.length >= 1)
+      setButtonVisiblity(true)
+    else setButtonVisiblity(false)
   }
+
+  Keyboard.addListener('keyboardDidHide', () => {
+    disableButton()
+  })
+
+  Keyboard.addListener('keyboardDidShow', () => {
+    disableButton()
+  })
 
   return (
     <View style={styles.container}>
