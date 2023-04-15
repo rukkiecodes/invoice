@@ -10,13 +10,13 @@
         "resourceClass": "m-medium"
       },
       "env": {
-        "apiKey": "AIzaSyBVcGt3tFqz1cB_LJCFxy2PQObNOVdJumg",
-        "authDomain": "wanlainjoinvoice.firebaseapp.com",
-        "projectId": "wanlainjoinvoice",
-        "storageBucket": "wanlainjoinvoice.appspot.com",
-        "messagingSenderId": "1058225728414",
-        "appId": "1:1058225728414:web:cf58163ee91ca83f6d048f",
-        "measurementId": "G-38LZ6LW3N3"
+        "apiKey": "AIzaSyAVay1M09VzmvzYpnNN6y1oDUwQ0beIOqA",
+        "authDomain": "invoice-d3ba9.firebaseapp.com",
+        "projectId": "invoice-d3ba9",
+        "storageBucket": "invoice-d3ba9.appspot.com",
+        "messagingSenderId": "347734515125",
+        "appId": "1:347734515125:web:058df8ec001d89030e0dfc",
+        "measurementId": "G-2C7C6RTS14"
       }
     },
     "preview": {
@@ -25,13 +25,13 @@
         "resourceClass": "m-medium"
       },
       "env": {
-        "apiKey": "AIzaSyBVcGt3tFqz1cB_LJCFxy2PQObNOVdJumg",
-        "authDomain": "wanlainjoinvoice.firebaseapp.com",
-        "projectId": "wanlainjoinvoice",
-        "storageBucket": "wanlainjoinvoice.appspot.com",
-        "messagingSenderId": "1058225728414",
-        "appId": "1:1058225728414:web:cf58163ee91ca83f6d048f",
-        "measurementId": "G-38LZ6LW3N3"
+        "apiKey": "AIzaSyAVay1M09VzmvzYpnNN6y1oDUwQ0beIOqA",
+        "authDomain": "invoice-d3ba9.firebaseapp.com",
+        "projectId": "invoice-d3ba9",
+        "storageBucket": "invoice-d3ba9.appspot.com",
+        "messagingSenderId": "347734515125",
+        "appId": "1:347734515125:web:058df8ec001d89030e0dfc",
+        "measurementId": "G-2C7C6RTS14"
       }
     },
     "production": {
@@ -39,13 +39,13 @@
         "resourceClass": "m-medium"
       },
       "env": {
-        "apiKey": "AIzaSyBVcGt3tFqz1cB_LJCFxy2PQObNOVdJumg",
-        "authDomain": "wanlainjoinvoice.firebaseapp.com",
-        "projectId": "wanlainjoinvoice",
-        "storageBucket": "wanlainjoinvoice.appspot.com",
-        "messagingSenderId": "1058225728414",
-        "appId": "1:1058225728414:web:cf58163ee91ca83f6d048f",
-        "measurementId": "G-38LZ6LW3N3"
+        "apiKey": "AIzaSyAVay1M09VzmvzYpnNN6y1oDUwQ0beIOqA",
+        "authDomain": "invoice-d3ba9.firebaseapp.com",
+        "projectId": "invoice-d3ba9",
+        "storageBucket": "invoice-d3ba9.appspot.com",
+        "messagingSenderId": "347734515125",
+        "appId": "1:347734515125:web:058df8ec001d89030e0dfc",
+        "measurementId": "G-2C7C6RTS14"
       }
     }
   },

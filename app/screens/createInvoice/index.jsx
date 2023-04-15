@@ -47,6 +47,7 @@ const CreateInvoice = () => {
 
   const [loading, setLoading] = useState(false)
   const [initialTerm, setInitialTerm] = useState('')
+  const [buttonVisiblity, setButtonVisiblity] = useState(false)
 
   const html = `
   <html lang="en">
@@ -258,23 +259,27 @@ const CreateInvoice = () => {
     await shareAsync(uri)
   }
 
+  const disableButton = () => {
+    return false
+  }
+
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <View style={styles.left}>
-          <Image style={styles.logo} source={require('../../../assets/images/logo.png')} />
-
-          <View style={styles.leftInfo}>
-            <Text style={styles.title}>WANLAINJO COMPUTERS LTD</Text>
-            <Text style={styles.info}>Village North Professional Building</Text>
-            <Text style={styles.info}>7420 Unity Ave N #211, Brooklyn Park,</Text>
-            <Text style={styles.info}>MN 55443, United States</Text>
-            <Text style={styles.info}>wanlainjocomputers.com</Text>
-          </View>
-        </View>
-      </View>
 
       <ScrollView style={styles.formSrollview} showsVerticalScrollIndicator={false}>
+        <View style={styles.header}>
+          <View style={styles.left}>
+            <Image style={styles.logo} source={require('../../../assets/images/logo.png')} />
+
+            <View style={styles.leftInfo}>
+              <Text style={styles.title}>WANLAINJO COMPUTERS LTD</Text>
+              <Text style={styles.info}>Village North Professional Building</Text>
+              <Text style={styles.info}>7420 Unity Ave N #211, Brooklyn Park,</Text>
+              <Text style={styles.info}>MN 55443, United States</Text>
+              <Text style={styles.info}>wanlainjocomputers.com</Text>
+            </View>
+          </View>
+        </View>
         <TextInput placeholder='Order' style={styles.input} value={order} onChangeText={e => dispatch(setOrder(e))} readOnly={true} />
         <TextInput placeholder='Date' style={styles.input} value={date} onChangeText={e => dispatch(setDate(e))} />
 
@@ -382,18 +387,18 @@ const CreateInvoice = () => {
       </ScrollView>
 
       <View style={styles.controles}>
-        <TouchableOpacity style={styles.shareButton} onPress={preview}>
-          <Feather name="eye" size={24} color="black" style={styles.shareButtonIcon} />
+        <TouchableOpacity style={styles.shareButton} onPress={preview} disabled={buttonVisiblity == false}>
+          <Feather name="eye" size={24} color="black" style={{ ...styles.shareButtonIcon, color: buttonVisiblity ? color.accent : `${color.black}40` }} />
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.saveButton} onPress={saveInvoice}>
+        <TouchableOpacity style={{ ...styles.saveButton, backgroundColor: buttonVisiblity ? color.accent : `${color.accent}40` }} onPress={saveInvoice} disabled={buttonVisiblity == false}>
           {
             loading ? <ActivityIndicator size='small' color='white' /> : <Text style={styles.saveButtonText}>Save Invoice</Text>
           }
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.shareButton} onPress={sharePDF}>
-          <Feather name="share-2" size={24} color="black" style={styles.shareButtonIcon} />
+        <TouchableOpacity style={styles.shareButton} onPress={sharePDF} disabled={buttonVisiblity == false}>
+          <Feather name="share-2" size={24} color="black" style={{ ...styles.shareButtonIcon, color: buttonVisiblity ? color.accent : `${color.black}40` }} />
         </TouchableOpacity>
       </View>
     </View>

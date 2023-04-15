@@ -30,37 +30,42 @@ const History = () => {
     }
     return (
         <View style={styles.container}>
-            <FlatList
-                data={history}
-                keyExtractor={(item) => item.id}
-                showsVerticalScrollIndicator={false}
-                renderItem={({ item, index }) => (
-                    <Pressable style={{ ...styles.item, marginBottom: (index + 1) == history.length ? 20 : 0 }} onPress={() => navigation.navigate('PreviewHistoryInvoice', { invoice: item })}>
-                        <View style={styles.window}>
-                            <Invoice invoice={item} />
-                        </View>
+            {
+                history.length >= 1 ?
+                    <FlatList
+                        data={history}
+                        keyExtractor={(item) => item.id}
+                        showsVerticalScrollIndicator={false}
+                        renderItem={({ item, index }) => (
+                            <Pressable style={{ ...styles.item, marginBottom: (index + 1) == history.length ? 20 : 0 }} onPress={() => navigation.navigate('PreviewHistoryInvoice', { invoice: item })}>
+                                <View style={styles.window}>
+                                    <Invoice invoice={item} />
+                                </View>
 
-                        <View style={styles.content}>
-                            <View style={styles.contentItem}>
-                                <Text>Order</Text>
-                                <Text>{item?.order}</Text>
-                            </View>
-                            <View style={styles.contentItem}>
-                                <Text>Date</Text>
-                                <Text>{item?.date}</Text>
-                            </View>
-                            <View style={styles.contentItem}>
-                                <Text>Billing Address</Text>
-                                <Text>{item?.billingAddressTitle}</Text>
-                            </View>
-                            <View style={styles.contentItem}>
-                                <Text>Shipping Address</Text>
-                                <Text>{item?.shippingAddressTitle}</Text>
-                            </View>
-                        </View>
-                    </Pressable>
-                )}
-            />
+                                <View style={styles.content}>
+                                    <View style={styles.contentItem}>
+                                        <Text>Order</Text>
+                                        <Text>{item?.order}</Text>
+                                    </View>
+                                    <View style={styles.contentItem}>
+                                        <Text>Date</Text>
+                                        <Text>{item?.date}</Text>
+                                    </View>
+                                    <View style={styles.contentItem}>
+                                        <Text>Billing Address</Text>
+                                        <Text>{item?.billingAddressTitle}</Text>
+                                    </View>
+                                    <View style={styles.contentItem}>
+                                        <Text>Shipping Address</Text>
+                                        <Text>{item?.shippingAddressTitle}</Text>
+                                    </View>
+                                </View>
+                            </Pressable>
+                        )}
+                    /> : <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                        <Text>You Do not have any saved Invoice yet</Text>
+                    </View>
+            }
         </View>
     )
 }

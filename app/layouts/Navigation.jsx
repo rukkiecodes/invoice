@@ -18,7 +18,7 @@ import History from '../screens/history'
 const Navigation = () => {
     return (
         <KeyboardAvoidingView style={{ flex: 1, backgroundColor: color.white }} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
-            <StatusBar style="light" />
+            <StatusBar style="dark" />
             <Navigator
                 screenOptions={{
                     lazy: true,
