@@ -4,9 +4,9 @@ import styles from './styles'
 import { collection, onSnapshot } from 'firebase/firestore'
 import { db } from '../../hooks/firebase'
 import { FlatList } from 'react-native'
-import Invoice from './components/Invoice'
 import { Pressable } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
+import color from '../../style/color'
 
 const History = () => {
     const navigation = useNavigation()
@@ -37,30 +37,30 @@ const History = () => {
                         keyExtractor={(item) => item.id}
                         showsVerticalScrollIndicator={false}
                         renderItem={({ item, index }) => (
-                            <Pressable style={{ ...styles.item, marginBottom: (index + 1) == history.length ? 20 : 0 }} onPress={() => navigation.navigate('PreviewHistoryInvoice', { invoice: item })}>
-                                <View style={styles.window}>
-                                    <Invoice invoice={item} />
-                                </View>
+                            <>
+                                <Pressable style={{ ...styles.item, marginBottom: (index + 1) == history.length ? 20 : 0 }} onPress={() => navigation.navigate('PreviewHistoryInvoice', { invoice: item })}>
+                                    <View style={styles.content}>
+                                        <View style={styles.contentItem}>
+                                            <Text>Order</Text>
+                                            <Text>{item?.order}</Text>
+                                        </View>
+                                        <View style={styles.contentItem}>
+                                            <Text>Date</Text>
+                                            <Text>{item?.date}</Text>
+                                        </View>
+                                        <View style={styles.contentItem}>
+                                            <Text>Billing Address</Text>
+                                            <Text>{item?.billingAddressTitle}</Text>
+                                        </View>
+                                        <View style={styles.contentItem}>
+                                            <Text>Shipping Address</Text>
+                                            <Text>{item?.shippingAddressTitle}</Text>
+                                        </View>
+                                    </View>
+                                </Pressable>
 
-                                <View style={styles.content}>
-                                    <View style={styles.contentItem}>
-                                        <Text>Order</Text>
-                                        <Text>{item?.order}</Text>
-                                    </View>
-                                    <View style={styles.contentItem}>
-                                        <Text>Date</Text>
-                                        <Text>{item?.date}</Text>
-                                    </View>
-                                    <View style={styles.contentItem}>
-                                        <Text>Billing Address</Text>
-                                        <Text>{item?.billingAddressTitle}</Text>
-                                    </View>
-                                    <View style={styles.contentItem}>
-                                        <Text>Shipping Address</Text>
-                                        <Text>{item?.shippingAddressTitle}</Text>
-                                    </View>
-                                </View>
-                            </Pressable>
+                                <View style={{ width: '80%', height: 1, backgroundColor: `${color.black}20`, alignSelf: 'center' }}></View>
+                            </>
                         )}
                     /> : <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                         <Text>You Do not have any saved Invoice yet</Text>
